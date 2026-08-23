@@ -1,0 +1,12 @@
+/Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/MVC.Models/bin/Debug/net10.0/MVC.Models.deps.json
+/Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/MVC.Models/bin/Debug/net10.0/MVC.Models.dll
+/Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/MVC.Models/bin/Debug/net10.0/MVC.Models.pdb
+/Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/MVC.Models/obj/Debug/net10.0/MVC.Models.GeneratedMSBuildEditorConfig.editorconfig
+/Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/MVC.Models/obj/Debug/net10.0/MVC.Models.AssemblyInfoInputs.cache
+/Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/MVC.Models/obj/Debug/net10.0/MVC.Models.AssemblyInfo.cs
+/Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/MVC.Models/obj/Debug/net10.0/MVC.Models.csproj.CoreCompileInputs.cache
+/Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/MVC.Models/obj/Debug/net10.0/MVC.Models.sourcelink.json
+/Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/MVC.Models/obj/Debug/net10.0/MVC.Models.dll
+/Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/MVC.Models/obj/Debug/net10.0/refint/MVC.Models.dll
+/Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/MVC.Models/obj/Debug/net10.0/MVC.Models.pdb
+/Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/MVC.Models/obj/Debug/net10.0/ref/MVC.Models.dll
