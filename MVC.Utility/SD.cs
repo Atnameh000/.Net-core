@@ -7,6 +7,6 @@ namespace MVC.Utility
 {
     public class SD
     {
-        
+        public int MyProperty { get; set; }
     }
 }
