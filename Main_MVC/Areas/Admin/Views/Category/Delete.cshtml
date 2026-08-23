@@ -1,0 +1,26 @@
+@model Category
+
+<div class="container">
+    <div class="text-center bg-dark">
+        <h2 class="text-white">
+            Delete Category
+        </h2>
+    </div>
+    <form method="post">
+        <div>
+            <label class="col-form-label mt-4" for="inputDefault">Category Name</label>
+            <input asp-for="Name" readonly class="form-control" placeholder=@Model.Name id="inputDefault">
+        </div>
+        <div class="row pt-4">
+            <div class="col-6 pt-3">
+                <button type="submit" class="btn btn-primary bg-danger form-control"
+                        style="width: full;">Delete</button>
+            </div>
+            <div class="col-2 bg-primary">
+                <a asp-controller="Category" asp-action="Index" class="btn btn-primary">
+                    BACK TO LIST
+                </a>
+            </div>
+        </div>
+    </form>
+</div>
