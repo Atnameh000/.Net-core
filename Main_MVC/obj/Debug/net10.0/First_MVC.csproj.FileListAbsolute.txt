@@ -468,3 +468,4 @@
 /Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/Main_MVC/bin/Debug/net10.0/MVC.Utility.pdb
 /Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/Main_MVC/obj/Debug/net10.0/compressed/ao1n93ox7q-{0}-ee43kl0z5u-ee43kl0z5u.gz
 /Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/Main_MVC/obj/Debug/net10.0/compressed/ax5iglp78l-{0}-ee43kl0z5u-ee43kl0z5u.gz
+/Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/Main_MVC/obj/Debug/net10.0/First_MVC.MvcApplicationPartsAssemblyInfo.cs

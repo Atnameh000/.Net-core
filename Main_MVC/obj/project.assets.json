@@ -1100,7 +1100,10 @@
         },
         "runtime": {
           "bin/placeholder/MVC.Models.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "MVC.Utility/1.0.0": {
         "type": "project",

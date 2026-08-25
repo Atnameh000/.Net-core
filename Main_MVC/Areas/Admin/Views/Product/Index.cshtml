@@ -19,12 +19,10 @@
         <thead>
             <tr>
                 <th scope="col">Title</th>
-                <th scope="col">Discription</th>
                 <th scope="col">Author</th>
                 <th scope="col">ISBN</th>
-                <th scope="col">List Price</th>
-                <th scope="col">Price for 1-50</th>
-                <th scope="col">Price for 50+</th>
+                <th scope="col">Price</th>
+                <th scope="col">Category</th>
             </tr>
         </thead>
         <tbody>
@@ -32,12 +30,10 @@
             {
                 <tr class="table-active">
                     <td>@obj.Title</td>
-                    <td>@obj.Discription</td>
                     <td>@obj.Author</td>
                     <td>@obj.ISBN</td>
                     <td>@obj.ListPrice</td>
-                    <td>@obj.Price</td>
-                    <td>@obj.Price50</td>
+                    <td></td>
                     <td>
                         <div>
                             <a asp-controller="Product" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary">
