@@ -1,7 +1,7 @@
-using System.Diagnostics;
+using System.Data.Common;
 using Microsoft.AspNetCore.Mvc;
-using First_MVC.Models;
-using Microsoft.VisualBasic;
+using MVC.DataAccess.Repository.IRepository;
+using MVC.Models.Models;
 
 namespace First_MVC.Controllers;
 
@@ -9,10 +9,16 @@ namespace First_MVC.Controllers;
 [Area("Customer")]
 public class HomeController : Controller
 {
+    private readonly IUnitOfWork _Repo;
+
+    public HomeController(IUnitOfWork db)
+    {
+        _Repo = db;
+    }
     public IActionResult Index(int id)
     {
-        string viewName = "Product";
-        return (id == 4) ? View(viewName) : View();
+        IEnumerable<Product> productList = _Repo.product.GetAll(includeProp: "Category").ToList();
+        return View(productList);
     }
 
     public IActionResult Privacy()
@@ -20,14 +26,10 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Product()
+    public IActionResult Details(int productId)
     {
-        return View();
+        Product product = _Repo.product.GetValue(product => product.Id == productId, includeProp: "Category");
+        return View(product);
     }
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
 }

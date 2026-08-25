@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using MVC.Utility
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -24,7 +25,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
@@ -33,6 +34,7 @@
                                asp-action="Privacy">Privacy</a>
                         </li>
 
+                        @if(User.IsInRole(SD.Role_Admin)){
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                aria-expanded="false">
@@ -52,7 +54,9 @@
                                 </li>
                             </ul>
                         </li>
+                        }
                     </ul>
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
@@ -71,6 +75,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.datatables.net/v/dt/dt-3.0.2/datatables.min.js" asp-append-version="true"></script>
     <script src="https://cdn.tiny.cloud/1/wczvzhbe2bkyq1nb45qgegy04wt0saohaip9f3541b2lvzxc/tinymce/8/tinymce.min.js"
             referrerpolicy="origin" crossorigin="anonymous"></script>

@@ -1,9 +1,5 @@
-using Azure;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.Extensions.FileProviders;
 using MVC.DataAccess.Repository.IRepository;
 using MVC.Models.Models;
 
@@ -56,6 +52,7 @@ namespace Main_MVC.Areas.Admin.Controllers
                     }
                     obj.ImageUrl = @"/Images/Product/" + filename;
                 }
+                obj.ImageUrl = Path.Combine(wwwRootPath, @"/Images/Product");
                 _Repo.product.Add(obj);
                 _Repo.Save();
                 TempData["success"] = "Product Created successfully";
@@ -111,21 +108,21 @@ namespace Main_MVC.Areas.Admin.Controllers
             return View();
         }
 
-        public IActionResult Delete(int id)
-        {
-            Product obj = _Repo.product.GetValue(obj => obj.Id == id);
-            return View(obj);
-        }
+        // public IActionResult Delete(int id)
+        // {
+        //     Product obj = _Repo.product.GetValue(obj => obj.Id == id);
+        //     return View(obj);
+        // }
 
-        [HttpPost]
-        public IActionResult Delete(Product obj)
-        {
-            _Repo.product.Remove(obj);
-            _Repo.Save();
-            TempData["success"] = "Product Deleted successfully";
-            return RedirectToAction("Index");
+        // [HttpPost]
+        // public IActionResult Delete(Product obj)
+        // {
+        //     _Repo.product.Remove(obj);
+        //     _Repo.Save();
+        //     TempData["success"] = "Product Deleted successfully";
+        //     return RedirectToAction("Index");
 
-        }
+        // }
 
 
         //Region Api calls
@@ -135,6 +132,26 @@ namespace Main_MVC.Areas.Admin.Controllers
         {
             List<Product> products = _Repo.product.GetAll(includeProp: "Category").ToList();
             return Json(new { data = products });
+        }
+
+        [HttpDelete]
+        public IActionResult Delete(int? id)
+        {
+            var productToBeDeleted = _Repo.product.GetValue(pro => pro.Id == id, includeProp: "Category");
+            if (productToBeDeleted == null)
+            {
+                return Json(new { success = false, message = "Error while deleting" });
+            }
+            var oldPhotoPath = Path.Combine(_WebHostEnviroment.WebRootPath, productToBeDeleted.ImageUrl.TrimStart('/'));
+            if (System.IO.File.Exists(oldPhotoPath))
+            {
+                System.IO.File.Delete(oldPhotoPath);
+            }
+
+            _Repo.product.Remove(productToBeDeleted);
+            _Repo.Save();
+            return Json(new { success = true, message = "Product deleted successfully" });
+
         }
 
         //End region
