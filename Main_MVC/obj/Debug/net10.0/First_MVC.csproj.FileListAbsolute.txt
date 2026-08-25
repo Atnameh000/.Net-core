@@ -231,7 +231,6 @@
 /Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/obj/Debug/net10.0/compressed/iymqsnzvbv-{0}-3jvbvs0mu3-3jvbvs0mu3.gz
 /Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/obj/Debug/net10.0/First_MVC.sourcelink.json
 /Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/Main_MVC/bin/Debug/net10.0/appsettings.Development.json
-/Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/Main_MVC/bin/Debug/net10.0/appsettings.json
 /Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/Main_MVC/bin/Debug/net10.0/First_MVC.staticwebassets.runtime.json
 /Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/Main_MVC/bin/Debug/net10.0/First_MVC.staticwebassets.endpoints.json
 /Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/Main_MVC/bin/Debug/net10.0/First_MVC
@@ -469,3 +468,6 @@
 /Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/Main_MVC/obj/Debug/net10.0/compressed/ao1n93ox7q-{0}-ee43kl0z5u-ee43kl0z5u.gz
 /Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/Main_MVC/obj/Debug/net10.0/compressed/ax5iglp78l-{0}-ee43kl0z5u-ee43kl0z5u.gz
 /Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/Main_MVC/obj/Debug/net10.0/First_MVC.MvcApplicationPartsAssemblyInfo.cs
+/Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/Main_MVC/bin/Debug/net10.0/appsettings.json
+/Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/Main_MVC/obj/Debug/net10.0/compressed/v3hu1jglcg-{0}-q3c3spe6fi-q3c3spe6fi.gz
+/Users/atnameh/Projects/ASP_NET_CORE_PROJECT/First_MVC/Main_MVC/obj/Debug/net10.0/compressed/5unhdduv5e-{0}-gukj7yzetr-gukj7yzetr.gz

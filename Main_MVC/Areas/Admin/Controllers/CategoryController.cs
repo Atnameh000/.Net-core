@@ -83,5 +83,17 @@ namespace First_MVC.Controllers
             return View();
         }
 
+
+        //Region Api calls
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            List<Category> categories = _Repo.category.GetAll().ToList();
+            return Json(new { data = categories });
+        }
+
+        //End region
+
     }
 }

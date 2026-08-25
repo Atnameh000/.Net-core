@@ -18,22 +18,38 @@ namespace MVC.DataAccess.Repository
             _db = db;
             this.dbSet = _db.Set<T>();
             //_db.Categories = dbSet
+            _db.Products.Include(o => o.Category);
         }
         public void Add(T entity)
         {
             dbSet.Add(entity);
         }
 
-        public IEnumerable<T> GetAll()
+        public IEnumerable<T> GetAll(string? includeProp = null)
         {
             IQueryable<T> query = dbSet;
+            if (!string.IsNullOrEmpty(includeProp))
+            {
+                foreach (var includePro in includeProp
+                .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includePro);
+                }
+            }
             return query.ToList();
         }
 
-        public T GetValue(Expression<Func<T, bool>> filter)
+        public T GetValue(Expression<Func<T, bool>> filter, string? includeProp = null)
         {
             IQueryable<T> query = dbSet;
             query = query.Where(filter);
+            if (!string.IsNullOrEmpty(includeProp))
+            {
+                foreach (var includePro in includeProp.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includePro);
+                }
+            }
             return query.FirstOrDefault();
         }
 
