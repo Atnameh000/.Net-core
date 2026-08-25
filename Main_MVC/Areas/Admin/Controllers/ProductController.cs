@@ -2,6 +2,7 @@ using Azure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.FileProviders;
 using MVC.DataAccess.Repository.IRepository;
 using MVC.Models.Models;
@@ -21,7 +22,7 @@ namespace Main_MVC.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            List<Product> products = _Repo.product.GetAll().ToList();
+            List<Product> products = _Repo.product.GetAll(includeProp: "Category").ToList();
             return View(products);
         }
 
@@ -39,24 +40,28 @@ namespace Main_MVC.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Product obj, IFormFile file)
+        public IActionResult Create(Product obj, IFormFile? file)
         {
-            string wwwRootPath = _WebHostEnviroment.WebRootPath;
-            if (file != null)
+            if (ModelState.IsValid)
             {
-                string filename = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
-                string productPath = Path.Combine(wwwRootPath, @"Images/Product");
-
-                using (var filestream = new FileStream(Path.Combine(productPath, filename), FileMode.Create))
+                string wwwRootPath = _WebHostEnviroment.WebRootPath;
+                if (file != null)
                 {
-                    file.CopyTo(filestream);
+                    string filename = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                    string productPath = Path.Combine(wwwRootPath, @"Images/Product");
+
+                    using (var filestream = new FileStream(Path.Combine(productPath, filename), FileMode.Create))
+                    {
+                        file.CopyTo(filestream);
+                    }
+                    obj.ImageUrl = @"/Images/Product/" + filename;
                 }
-                obj.ImageUrl = @"/Images/Product/" + filename;
+                _Repo.product.Add(obj);
+                _Repo.Save();
+                TempData["success"] = "Product Created successfully";
+                return RedirectToAction("Index");
             }
-            _Repo.product.Add(obj);
-            _Repo.Save();
-            TempData["success"] = "Product Created successfully";
-            return RedirectToAction("Index");
+            return View();
         }
 
         public IActionResult Edit(int id)
@@ -121,5 +126,18 @@ namespace Main_MVC.Areas.Admin.Controllers
             return RedirectToAction("Index");
 
         }
+
+
+        //Region Api calls
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            List<Product> products = _Repo.product.GetAll(includeProp: "Category").ToList();
+            return Json(new { data = products });
+        }
+
+        //End region
+
     }
 }
